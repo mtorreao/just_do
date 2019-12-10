@@ -1,3 +1,4 @@
+import 'package:just_do/app/modules/home/todo_list_controller.dart';
 import 'package:just_do/app/modules/home/home_controller.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:just_do/app/modules/home/home_page.dart';
 class HomeModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
+        Bloc((i) => TodoListController()),
         Bloc((i) => HomeController()),
       ];
 
