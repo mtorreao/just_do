@@ -7,11 +7,13 @@ class ResponsiveLayoutWidget extends StatelessWidget {
   final controller = AppModule.to.getBloc<ResponsiveLayoutController>();
   final AppBar appBar;
   final Widget child;
+  final Widget floatingActionButton;
 
   ResponsiveLayoutWidget({
     Key key,
     this.appBar,
     @required this.child,
+    this.floatingActionButton,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class ResponsiveLayoutWidget extends StatelessWidget {
         controller.updateWidth(constraints.maxWidth);
         return Scaffold(
           appBar: this.appBar,
+          floatingActionButton: this.floatingActionButton,
           body: Row(
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,

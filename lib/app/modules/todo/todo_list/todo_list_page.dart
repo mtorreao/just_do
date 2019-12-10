@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:just_do/app/modules/todo_list/todo_list_controller.dart';
-import 'package:just_do/app/modules/todo_list/todo_list_module.dart';
+import 'package:just_do/app/modules/todo/todo_form/todo_form_module.dart';
+import 'package:just_do/app/modules/todo/todo_list/todo_list_controller.dart';
+import 'package:just_do/app/modules/todo/todo_list/todo_list_module.dart';
 import 'package:just_do/app/shared/models/todo_model.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_widget.dart';
 
@@ -55,6 +57,16 @@ class _TodoListPageState extends State<TodoListPage> {
             );
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final todo = await Navigator.push(
+              context, CupertinoPageRoute(builder: (_) => TodoFormModule()));
+          if (todo != null) {
+            listController.addTodo(todo);
+          }
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
