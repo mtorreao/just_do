@@ -18,6 +18,5 @@ abstract class _TodoListBase with Store {
   doneUndoneTodo(int index) {
     final todo = todos.elementAt(index);
     todo.done = !todo.done;
-    // todos[index] = todo;
   }
 }
