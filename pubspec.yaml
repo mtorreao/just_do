@@ -17,14 +17,21 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  flutter_mobx: ^0.3.3+3
+  mobx: ^0.3.9+3
+  dio: ^3.0.7
+  rxdart: ^0.22.6
+  bloc_pattern: ^2.5.1
   flutter:
     sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  mobx_codegen: ^0.3.10+1
+  build_runner: ^1.7.2
+  mockito: ^4.1.1
   flutter_test:
     sdk: flutter
 
@@ -70,3 +77,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+scripts:
+  build: flutter packages pub run build_runner build
+  clean: flutter packages pub run build_runner clean
