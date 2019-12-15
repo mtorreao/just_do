@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:just_do/app/modules/todo/todo_form/todo_form_module.dart';
 import 'package:just_do/app/modules/todo/todo_list/todo_list_controller.dart';
-import 'package:just_do/app/modules/todo/todo_list/todo_list_module.dart';
 import 'package:just_do/app/shared/models/todo_model.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_widget.dart';
+
+import '../todo_module.dart';
 
 class TodoListPage extends StatefulWidget {
   @override
@@ -13,14 +13,11 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-  final listController = TodoListModule.to.bloc<TodoListController>();
+  final listController = TodoModule.to.bloc<TodoListController>();
 
   @override
   void initState() {
     super.initState();
-    listController.addTodo(TodoModel("Task 1"));
-    listController.addTodo(TodoModel("Task 2"));
-    listController.addTodo(TodoModel("Task 3"));
   }
 
   @override
@@ -60,11 +57,12 @@ class _TodoListPageState extends State<TodoListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final todo = await Navigator.push(
-              context, CupertinoPageRoute(builder: (_) => TodoFormModule()));
-          if (todo != null) {
-            listController.addTodo(todo);
-          }
+          // final todo = await Navigator.push(
+          //     context, CupertinoPageRoute(builder: (_) => TodoFormPage()));
+          // if (todo != null) {
+          //   listController.addTodo(todo);
+          // }
+          listController.addTodo(TodoModel(title: "Task 1"));
         },
         child: Icon(Icons.add),
       ),

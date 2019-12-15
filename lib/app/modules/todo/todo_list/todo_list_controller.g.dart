@@ -26,18 +26,15 @@ mixin _$TodoListController on _TodoListBase, Store {
     }, _$todosAtom, name: '${_$todosAtom.name}_set');
   }
 
-  final _$_TodoListBaseActionController =
-      ActionController(name: '_TodoListBase');
+  final _$addTodoAsyncAction = AsyncAction('addTodo');
 
   @override
-  dynamic addTodo(TodoModel model) {
-    final _$actionInfo = _$_TodoListBaseActionController.startAction();
-    try {
-      return super.addTodo(model);
-    } finally {
-      _$_TodoListBaseActionController.endAction(_$actionInfo);
-    }
+  Future addTodo(TodoModel model) {
+    return _$addTodoAsyncAction.run(() => super.addTodo(model));
   }
+
+  final _$_TodoListBaseActionController =
+      ActionController(name: '_TodoListBase');
 
   @override
   dynamic doneUndoneTodo(int index) {
