@@ -35,4 +35,11 @@ class TodosRepository extends Disposable {
     final box = await _dbService.getBox();
     box.clear();
   }
+
+  Future<TodoModel> update(TodoModel todo) async {
+    assert(todo != null && todo.id != null);
+    final box = await _dbService.getBox();
+    await box.put(todo.id, todo.toJson());
+    return todo;
+  }
 }

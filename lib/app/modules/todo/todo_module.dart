@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:just_do/app/shared/repositories/todos_repository.dart';
 import 'package:just_do/app/shared/services/local_db_service.dart';
 
-import 'todo_form/todo_form_controller.dart';
 import 'todo_list/todo_list_controller.dart';
 import 'todo_list/todo_list_page.dart';
 
 class TodoModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
-    Bloc((i) => TodoListController(i.getDependency<TodosRepository>())),
-    Bloc((i) => TodoFormController(i.getDependency<TodosRepository>())),
-  ];
+        Bloc((i) => TodoListController(i.getDependency<TodosRepository>())),
+      ];
 
   @override
   List<Dependency> get dependencies => [

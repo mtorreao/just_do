@@ -8,6 +8,15 @@ class AppWidget extends StatelessWidget {
       title: 'Just Do',
       theme: ThemeData(
         primarySwatch: Colors.purple,
+        buttonTheme: ButtonThemeData(
+          textTheme: ButtonTextTheme.primary,
+          buttonColor: Colors.purple,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              25,
+            ),
+          ),
+        ),
       ),
       home: TodoModule(),
     );
