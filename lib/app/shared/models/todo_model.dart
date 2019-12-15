@@ -4,14 +4,10 @@ import 'package:mobx/mobx.dart';
 part 'todo_model.g.dart';
 
 class TodoModel extends _TodoModel with _$TodoModel {
-  String id;
-  String title;
-  bool done;
-
   TodoModel({
-    @required this.title,
-    this.done,
-    this.id,
+    @required String title,
+    bool done = false,
+    String id,
   }) : super(title, done: done, id: id);
 
   Map<String, dynamic> toJson() {

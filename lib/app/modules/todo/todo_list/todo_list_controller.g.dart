@@ -45,4 +45,14 @@ mixin _$TodoListController on _TodoListBase, Store {
       _$_TodoListBaseActionController.endAction(_$actionInfo);
     }
   }
+
+  @override
+  dynamic remove(int index) {
+    final _$actionInfo = _$_TodoListBaseActionController.startAction();
+    try {
+      return super.remove(index);
+    } finally {
+      _$_TodoListBaseActionController.endAction(_$actionInfo);
+    }
+  }
 }

@@ -42,4 +42,9 @@ class TodosRepository extends Disposable {
     await box.put(todo.id, todo.toJson());
     return todo;
   }
+
+  Future<void> remove(String id) async {
+    final box = await _dbService.getBox();
+    box.delete(id);
+  }
 }

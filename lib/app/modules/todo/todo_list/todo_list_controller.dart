@@ -32,5 +32,12 @@ abstract class _TodoListBase with Store {
   doneUndoneTodo(int index) {
     final todo = todos.elementAt(index);
     todo.done = !todo.done;
+    todos[index] = todo;
+  }
+
+  @action
+  remove(int index) {
+    _repository.remove(todos.elementAt(index).id);
+    todos.removeAt(index);
   }
 }

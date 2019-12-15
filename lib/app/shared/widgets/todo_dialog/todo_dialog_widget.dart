@@ -91,7 +91,7 @@ class TodoDialogWidget extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () {
-                    _saveForm();
+                    _saveForm(context);
                   },
                   child: Text('Salvar'),
                 ),
@@ -103,10 +103,11 @@ class TodoDialogWidget extends StatelessWidget {
     );
   }
 
-  void _saveForm() {
+  void _saveForm(BuildContext context) {
     final form = formKey.currentState;
     if (form.validate()) {
       saveHandler(controller.todo);
+      Navigator.of(context).pop();
     }
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -27,6 +29,7 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text("Todo List"),
       ),
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16,),
         child: Observer(
           builder: (BuildContext context) {
             final list = listController.todos;
@@ -40,7 +43,29 @@ class _TodoListPageState extends State<TodoListPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: <Widget>[
-                          Text(item.title),
+                          Observer(builder: (_) => Text(item.title, style: Theme.of(context).textTheme.subtitle.copyWith(
+                            decoration: item.done ? TextDecoration.lineThrough : TextDecoration.none,
+                          ))),
+                          Flexible(
+                            flex: 1,
+                            child: Container(),
+                          ),
+                          Observer(
+                            builder: (BuildContext context) => IconButton(
+                              icon: Icon(item.done
+                                  ? Icons.check_box
+                                  : Icons.check_box_outline_blank),
+                              onPressed: () {
+                                listController.doneUndoneTodo(index);
+                              },
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              listController.remove(index);
+                            },
+                          ),
                         ],
                       ),
                     ),
