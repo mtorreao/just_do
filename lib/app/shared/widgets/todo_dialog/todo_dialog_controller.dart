@@ -1,7 +1,6 @@
 import 'package:mobx/mobx.dart';
 
 import '../../models/todo_model.dart';
-import '../../models/todo_model.dart';
 
 part 'todo_dialog_controller.g.dart';
 

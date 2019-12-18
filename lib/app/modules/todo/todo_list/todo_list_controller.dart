@@ -10,7 +10,6 @@ abstract class _TodoListBase with Store {
   TodosRepository _repository;
 
   _TodoListBase(this._repository) {
-    // this._repository.clear();
     _initList();
   }
 
@@ -32,6 +31,7 @@ abstract class _TodoListBase with Store {
   doneUndoneTodo(int index) {
     final todo = todos.elementAt(index);
     todo.done = !todo.done;
+    _repository.update(todo);
     todos[index] = todo;
   }
 
