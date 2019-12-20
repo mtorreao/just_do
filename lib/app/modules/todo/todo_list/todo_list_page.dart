@@ -29,7 +29,10 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text("Todo List"),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16,),
+        padding: EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 16,
+        ),
         child: Observer(
           builder: (BuildContext context) {
             final list = listController.todos;
@@ -43,9 +46,16 @@ class _TodoListPageState extends State<TodoListPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: <Widget>[
-                          Observer(builder: (_) => Text(item.title, style: Theme.of(context).textTheme.subtitle.copyWith(
-                            decoration: item.done ? TextDecoration.lineThrough : TextDecoration.none,
-                          ))),
+                          Observer(
+                              builder: (_) => Text(item.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle
+                                      .copyWith(
+                                        decoration: item.done
+                                            ? TextDecoration.lineThrough
+                                            : TextDecoration.none,
+                                      ))),
                           Flexible(
                             flex: 1,
                             child: Container(),
@@ -84,6 +94,7 @@ class _TodoListPageState extends State<TodoListPage> {
         onPressed: () async {
           showDialog(
               context: context,
+              barrierDismissible: false,
               builder: (_) => TodoDialogWidget((model) {
                     listController.addTodo(model);
                   }));

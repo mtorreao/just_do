@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_do/app/modules/home/home_module.dart';
+import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_widget.dart';
 
 import 'home_controller.dart';
 
@@ -16,10 +17,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ResponsiveLayoutWidget(
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      child: null,
     );
   }
 }

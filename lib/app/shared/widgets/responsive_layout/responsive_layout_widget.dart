@@ -6,6 +6,7 @@ import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_c
 class ResponsiveLayoutWidget extends StatelessWidget {
   final controller = AppModule.to.getBloc<ResponsiveLayoutController>();
   final AppBar appBar;
+  final Widget drawer;
   final Widget child;
   final Widget floatingActionButton;
 
@@ -14,6 +15,7 @@ class ResponsiveLayoutWidget extends StatelessWidget {
     this.appBar,
     @required this.child,
     this.floatingActionButton,
+    this.drawer,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,10 @@ class ResponsiveLayoutWidget extends StatelessWidget {
               Observer(
                 builder: (BuildContext context) {
                   if (!controller.isMobile) {
-                    return TwoColumnsWidget(child: child);
+                    return TwoColumnsWidget(
+                      drawer: this.drawer,
+                      child: child,
+                    );
                   } else {
                     return Flexible(
                       child: this.child,
@@ -54,23 +59,33 @@ class TwoColumnsWidget extends StatelessWidget {
   const TwoColumnsWidget({
     Key key,
     @required this.child,
+    this.drawer,
   }) : super(key: key);
 
   final Widget child;
+  final Widget drawer;
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Flexible(
-            child: Container(
-              color: Colors.purpleAccent,
+          if (drawer != null)
+            Flexible(
+              child: drawer,
+              flex: 1,
             ),
-            flex: 1,
-          ),
           Flexible(
-            child: this.child,
+            child: Center(
+              child: Container(
+                child: this.child,
+                constraints: BoxConstraints(
+                  maxWidth: 900,
+                ),
+              ),
+            ),
             flex: 3,
           ),
         ],
