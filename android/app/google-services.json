@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "431143571271",
+    "firebase_url": "https://just-do-app.firebaseio.com",
+    "project_id": "just-do-app",
+    "storage_bucket": "just-do-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431143571271:android:84ef59e7e2081454ac8662",
+        "android_client_info": {
+          "package_name": "com.matheustorreao.just_do"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431143571271-tn9l4qhf89sb9ejmeieem0230llibekt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvgJv8YBZXEdbOfbHpuWuH7cTBJ89De-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431143571271-tn9l4qhf89sb9ejmeieem0230llibekt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

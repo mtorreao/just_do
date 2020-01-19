@@ -2,6 +2,7 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:just_do/app/app_controller.dart';
 import 'package:just_do/app/app_widget.dart';
+import 'package:just_do/app/shared/services/auth_service.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_controller.dart';
 
 class AppModule extends ModuleWidget {
@@ -9,6 +10,7 @@ class AppModule extends ModuleWidget {
   List<Bloc> get blocs => [
         Bloc((i) => ResponsiveLayoutController()),
         Bloc((i) => AppController()),
+        Bloc((i) => AuthService()),
       ];
 
   @override
