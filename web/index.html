@@ -5,6 +5,28 @@
   <title>Just Do</title>
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDsyyx8SFztoQZKxEoipKUYfwrwdlWl-7M",
+      authDomain: "just-do-app.firebaseapp.com",
+      databaseURL: "https://just-do-app.firebaseio.com",
+      projectId: "just-do-app",
+      storageBucket: "just-do-app.appspot.com",
+      messagingSenderId: "431143571271",
+      appId: "1:431143571271:web:58752267ca2e9846ac8662",
+      measurementId: "G-E2PW9LJPTN"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics()
+  </script>
+  
+
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
