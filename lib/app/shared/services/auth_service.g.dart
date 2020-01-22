@@ -26,14 +26,38 @@ mixin _$AuthService on _AuthServiceBase, Store {
     }, _$stateAtom, name: '${_$stateAtom.name}_set');
   }
 
+  final _$currentUserAtom = Atom(name: '_AuthServiceBase.currentUser');
+
+  @override
+  UserModel get currentUser {
+    _$currentUserAtom.context.enforceReadPolicy(_$currentUserAtom);
+    _$currentUserAtom.reportObserved();
+    return super.currentUser;
+  }
+
+  @override
+  set currentUser(UserModel value) {
+    _$currentUserAtom.context.conditionallyRunInAction(() {
+      super.currentUser = value;
+      _$currentUserAtom.reportChanged();
+    }, _$currentUserAtom, name: '${_$currentUserAtom.name}_set');
+  }
+
+  final _$tryLoginAsyncAction = AsyncAction('tryLogin');
+
+  @override
+  Future tryLogin() {
+    return _$tryLoginAsyncAction.run(() => super.tryLogin());
+  }
+
   final _$_AuthServiceBaseActionController =
       ActionController(name: '_AuthServiceBase');
 
   @override
-  dynamic tryLogin() {
+  dynamic updateCurrentUser(FirebaseUser user) {
     final _$actionInfo = _$_AuthServiceBaseActionController.startAction();
     try {
-      return super.tryLogin();
+      return super.updateCurrentUser(user);
     } finally {
       _$_AuthServiceBaseActionController.endAction(_$actionInfo);
     }

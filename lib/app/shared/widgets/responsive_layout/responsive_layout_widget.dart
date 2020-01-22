@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:just_do/app/app_module.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_controller.dart';
 
 class ResponsiveLayoutWidget extends StatelessWidget {
-  final controller = AppModule.to.getBloc<ResponsiveLayoutController>();
+  final controller = Modular.get<ResponsiveLayoutController>();
   final AppBar appBar;
   final Widget drawer;
   final Widget child;

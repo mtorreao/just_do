@@ -1,23 +1,27 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:just_do/app/app_controller.dart';
 import 'package:just_do/app/app_widget.dart';
+import 'package:just_do/app/modules/todo/todo_module.dart';
 import 'package:just_do/app/shared/services/auth_service.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_controller.dart';
 
-class AppModule extends ModuleWidget {
+class AppModule extends MainModule {
   @override
-  List<Bloc> get blocs => [
-        Bloc((i) => ResponsiveLayoutController()),
-        Bloc((i) => AppController()),
-        Bloc((i) => AuthService()),
+  List<Bind> get binds => [
+        Bind((i) => ResponsiveLayoutController()),
+        Bind((i) => AppController()),
+        Bind((i) => AuthService()),
       ];
 
   @override
-  List<Dependency> get dependencies => [];
+  Widget get bootstrap => AppWidget();
 
   @override
-  Widget get view => AppWidget();
+  List<Router> get routers => [
+        Router('/', module: TodoModule()),
+        Router('/login', module: TodoModule()),
+      ];
 
   static Inject get to => Inject<AppModule>.of();
 }

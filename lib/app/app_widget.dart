@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:just_do/app/modules/todo/todo_module.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
-import 'app_module.dart';
 
 class AppWidget extends StatelessWidget {
   @override
   StatelessElement createElement() {
-    AppModule.to.getBloc<AppController>().init();
+    Modular.get<AppController>().init();
     return super.createElement();
   }
 
@@ -27,7 +26,9 @@ class AppWidget extends StatelessWidget {
           ),
         ),
       ),
-      home: TodoModule(),
+      initialRoute: '/',
+      onGenerateRoute: Modular.generateRoute,
+      navigatorKey: Modular.navigatorKey,
     );
   }
 }

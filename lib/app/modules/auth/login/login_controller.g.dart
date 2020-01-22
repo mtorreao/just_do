@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_controller.dart';
+part of 'login_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'home_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$HomeController on _HomeBase, Store {
-  final _$valueAtom = Atom(name: '_HomeBase.value');
+mixin _$LoginController on _LoginBase, Store {
+  final _$valueAtom = Atom(name: '_LoginBase.value');
 
   @override
   int get value {
@@ -26,15 +26,15 @@ mixin _$HomeController on _HomeBase, Store {
     }, _$valueAtom, name: '${_$valueAtom.name}_set');
   }
 
-  final _$_HomeBaseActionController = ActionController(name: '_HomeBase');
+  final _$_LoginBaseActionController = ActionController(name: '_LoginBase');
 
   @override
   void increment() {
-    final _$actionInfo = _$_HomeBaseActionController.startAction();
+    final _$actionInfo = _$_LoginBaseActionController.startAction();
     try {
       return super.increment();
     } finally {
-      _$_HomeBaseActionController.endAction(_$actionInfo);
+      _$_LoginBaseActionController.endAction(_$actionInfo);
     }
   }
 }

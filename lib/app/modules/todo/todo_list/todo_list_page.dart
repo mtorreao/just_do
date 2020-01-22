@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:just_do/app/modules/todo/todo_list/todo_list_controller.dart';
+import 'package:just_do/app/shared/services/auth_service.dart';
 import 'package:just_do/app/shared/widgets/responsive_layout/responsive_layout_widget.dart';
 import 'package:just_do/app/shared/widgets/todo_dialog/todo_dialog_widget.dart';
 
@@ -15,7 +17,7 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-  final listController = TodoModule.to.bloc<TodoListController>();
+  final listController = TodoModule.to.get<TodoListController>();
 
   @override
   void initState() {
@@ -27,6 +29,14 @@ class _TodoListPageState extends State<TodoListPage> {
     return ResponsiveLayoutWidget(
       appBar: AppBar(
         title: Text("Todo List"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.forward),
+            onPressed: () {
+              Modular.to.pushReplacementNamed('/login');
+            },
+          ),
+        ],
       ),
       child: Container(
         padding: EdgeInsets.symmetric(

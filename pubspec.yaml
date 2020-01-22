@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  flutter_modular: ^0.3.3+1
   firebase_auth: ^0.15.3+1
   uuid: ^2.0.4
   path_provider: ^1.5.1
