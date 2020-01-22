@@ -10,7 +10,7 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => ResponsiveLayoutController()),
-        Bind((i) => AppController()),
+        Bind((i) => AppController(i.get<AuthService>())),
         Bind((i) => AuthService()),
       ];
 

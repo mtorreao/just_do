@@ -46,6 +46,11 @@ abstract class _AuthServiceBase with Store {
     }
   }
 
+  @action
+  logOut() {
+    _firebaseAuth.signOut();
+  }
+
   @override
   void dispose() {
     authStateChangedSub.cancel();

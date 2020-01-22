@@ -33,7 +33,7 @@ class _TodoListPageState extends State<TodoListPage> {
           IconButton(
             icon: Icon(Icons.forward),
             onPressed: () {
-              Modular.to.pushReplacementNamed('/login');
+              Modular.get<AuthService>().logOut();
             },
           ),
         ],

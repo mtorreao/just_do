@@ -7,8 +7,18 @@ part 'app_controller.g.dart';
 class AppController = _AppBase with _$AppController;
 
 abstract class _AppBase with Store {
+  final AuthService authService;
+
+  _AppBase(this.authService);
+
   init() {
-    print('abc');
-    Modular.get<AuthService>().tryLogin();
+    authService.tryLogin();
+    reaction((_) => this.authService.state, (state) {
+      if (state is LoggedState) {
+        Modular.to.pushReplacementNamed('/');
+      } else {
+        Modular.to.pushReplacementNamed('/login');
+      }
+    });
   }
 }

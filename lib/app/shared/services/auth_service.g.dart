@@ -62,4 +62,14 @@ mixin _$AuthService on _AuthServiceBase, Store {
       _$_AuthServiceBaseActionController.endAction(_$actionInfo);
     }
   }
+
+  @override
+  dynamic logOut() {
+    final _$actionInfo = _$_AuthServiceBaseActionController.startAction();
+    try {
+      return super.logOut();
+    } finally {
+      _$_AuthServiceBaseActionController.endAction(_$actionInfo);
+    }
+  }
 }
